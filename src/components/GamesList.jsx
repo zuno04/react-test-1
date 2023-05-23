@@ -64,7 +64,15 @@ const GamesList = () => {
       <GameGrid>
         {filteredGames.map((game) => {
           const jackpot = jackpots.find((j) => j.game === game.id);
-          return <GameCard key={game.id} game={game} jackpot={jackpot} />;
+          const isNew = Object.values(game.categories).includes("new");
+          return (
+            <GameCard
+              key={game.id}
+              game={game}
+              isNew={isNew}
+              jackpot={jackpot}
+            />
+          );
         })}
       </GameGrid>
     </>
@@ -75,11 +83,11 @@ export default GamesList;
 
 const GameGrid = styled.div`
   margin-top: 50px;
-  padding-left: 10%;
-  padding-right: 10%;
+  padding-left: 5%;
+  padding-right: 5%;
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-between;
+  justify-content: center;
 
   @media (max-width: 768px) {
     justify-content: center;

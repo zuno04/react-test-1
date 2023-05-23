@@ -8,7 +8,7 @@ const CategoryNavigation = ({ categories, activeCategory, onChange }) => {
         {categories.map((category) => (
           <CategoryItem
             key={category.id}
-            active={activeCategory === category.id}
+            active={activeCategory === category.id ? "active" : ""}
             onClick={() => onChange(category.id)}
           >
             {category.name}
@@ -26,6 +26,7 @@ const CategoryList = styled.nav`
   justify-content: space-between;
   align-items: center;
   color: white;
+  font-size: 1.7rem;
 
   @media (max-width: 768px) {
     flex-direction: column;
@@ -41,10 +42,11 @@ const CategoryMenu = styled.ul`
 
 const CategoryItem = styled.li`
   margin-right: 15px;
+  margin-right: 20px;
+  margin-left: 20px;
   padding: 20px;
   color: white;
   cursor: pointer;
-  font-weight: ${({ active }) => (active ? "bold" : "normal")};
   background: ${({ active }) => (active ? "#90c300" : "none")};
 
   &:hover {

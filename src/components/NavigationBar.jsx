@@ -12,7 +12,7 @@ const NavigationBar = () => {
 export default NavigationBar;
 
 const Navbar = styled.nav`
-  background-color: black;
+  background-color: #202020;
   height: 40px;
   padding: 10px;
   display: flex;
